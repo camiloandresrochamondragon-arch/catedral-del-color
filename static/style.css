@@ -1,0 +1,73 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Encabezado */
+.header {
+    width: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.logo {
+    height: 80px;
+}
+
+.nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #444;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #e60000;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/static/background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 20px;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 48px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+/* Intro */
+.intro {
+    padding: 40px;
+    text-align: center;
+}
+
+.intro h2 {
+    color: #d90000;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}

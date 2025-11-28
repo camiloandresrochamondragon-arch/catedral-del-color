@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Color – Catedral del Color</title>
+    <link rel="stylesheet" href="/static_index/styles_index.css">
+</head>
+
+<body>
+
+<header class="header">
+    <img src="/static_index/logo.png" class="logo">
+    <nav class="nav">
+        <a href="/">Inicio</a>
+        <a href="/asesoria">Asesoría</a>
+        <a href="/envios">Envíos</a>
+    </nav>
+</header>
+<section class="compare-colors" style="padding: 60px 20px; text-align:center;">
+    <h2>Comparador de Colores</h2>
+    <p>Selecciona dos colores para compararlos lado a lado.</p>
+
+    <div style="margin-top: 30px; display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
+
+        <!-- COLOR 1 -->
+        <div>
+            <h3>Color 1</h3>
+            <input type="color" id="color1" value="#ff0000" style="width:80px; height:80px; border:none;">
+            <p id="hex1" style="margin-top:10px; font-weight:bold;">#ff0000</p>
+        </div>
+
+        <!-- COLOR 2 -->
+        <div>
+            <h3>Color 2</h3>
+            <input type="color" id="color2" value="#0000ff" style="width:80px; height:80px; border:none;">
+            <p id="hex2" style="margin-top:10px; font-weight:bold;">#0000ff</p>
+        </div>
+    </div>
+
+    <!-- CUADROS GRANDES -->
+    <div style="margin-top:40px; display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+        <div id="box1" style="width:200px; height:200px; border-radius:10px; background:#ff0000;"></div>
+        <div id="box2" style="width:200px; height:200px; border-radius:10px; background:#0000ff;"></div>
+    </div>
+
+    <button onclick="swapColors()" 
+    style="margin-top:30px; padding:10px 20px; background:#c70000; color:white; border:none; border-radius:5px; cursor:pointer;">
+        Intercambiar Colores
+    </button>
+</section>
+
+<script>
+    const color1 = document.getElementById("color1");
+    const color2 = document.getElementById("color2");
+
+    const box1 = document.getElementById("box1");
+    const box2 = document.getElementById("box2");
+
+    const hex1 = document.getElementById("hex1");
+    const hex2 = document.getElementById("hex2");
+
+    // Cambia los cuadros cuando se elige un color
+    color1.addEventListener("input", () => {
+        box1.style.background = color1.value;
+        hex1.textContent = color1.value;
+    });
+
+    color2.addEventListener("input", () => {
+        box2.style.background = color2.value;
+        hex2.textContent = color2.value;
+    });
+
+    // Intercambiar colores
+    function swapColors() {
+        let temp = color1.value;
+        color1.value = color2.value;
+        color2.value = temp;
+
+        box1.style.background = color1.value;
+        box2.style.background = color2.value;
+
+        hex1.textContent = color1.value;
+        hex2.textContent = color2.value;
+    }
+</script>
