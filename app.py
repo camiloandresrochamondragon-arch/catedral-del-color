@@ -2,12 +2,16 @@ from flask import Flask, render_template
 
 app = Flask(__name__, static_folder='static_index', template_folder='templates')
 
+# --------------------------
 # Página principal
+# --------------------------
 @app.route('/')
 def index():
     return render_template('index.html')
 
+# --------------------------
 # Rutas de categorías
+# --------------------------
 @app.route('/vinilos')
 def vinilos():
     return render_template('vinilos.html')
@@ -28,26 +32,118 @@ def lacas():
 def ferreteria():
     return render_template('ferreteria.html')
 
-# Combinador
 @app.route('/combinar')
 def combinar():
     return render_template('combinar.html')
 
-# 🔥 Nueva ruta: Asesoría
 @app.route('/asesoria')
 def asesoria():
     return render_template('asesoria.html')
 
-# 🔥 Nueva ruta: Simulador
 @app.route('/simulador')
 def simulador():
     return render_template('simulador.html')
 
-# 🔥 Nueva ruta: Envíos
 @app.route('/envios')
 def envios():
     return render_template('envios.html')
 
 
-if __name__ == '__main__':
+# =======================================================
+#                     PINTULAND
+# =======================================================
+
+@app.route("/pintuland/tipo1/galon")
+def pintuland_tipo1_galon():
+    return render_template("pintuland/tipo1/galon.html")
+
+@app.route("/pintuland/tipo1/balde")
+def pintuland_tipo1_balde():
+    return render_template("pintuland/tipo1/balde.html")
+
+@app.route("/pintuland/tipo1/caneca")
+def pintuland_tipo1_caneca():
+    return render_template("pintuland/tipo1/caneca.html")
+
+@app.route("/pintuland/acriland/galon")
+def pintuland_acriland_galon():
+    return render_template("pintuland/acriland/galon.html")
+
+@app.route("/pintuland/acriland/balde")
+def pintuland_acriland_balde():
+    return render_template("pintuland/acriland/balde.html")
+
+@app.route("/pintuland/acriland/caneca")
+def pintuland_acriland_caneca():
+    return render_template("pintuland/acriland/caneca.html")
+
+
+# =======================================================
+#                     RECOLTEX
+# =======================================================
+
+@app.route("/recoltex/tipo1/galon")
+def recoltex_tipo1_galon():
+    return render_template("recoltex/tipo1/galon.html")
+
+@app.route("/recoltex/tipo2/estandar")
+def recoltex_tipo2_estandar():
+    return render_template("recoltex/tipo2/estandar.html")
+
+@app.route("/recoltex/tipo2/superior")
+def recoltex_tipo2_superior():
+    return render_template("recoltex/tipo2/superior.html")
+
+@app.route("/recoltex/hidroplast")
+def recoltex_hidroplast():
+    return render_template("recoltex/hidroplast.html")
+
+@app.route("/recoltex/vinicol")
+def recoltex_vinicol():
+    return render_template("recoltex/vinicol.html")
+
+@app.route("/recoltex/esmalte-base-agua")
+def recoltex_esmalte_base_agua():
+    return render_template("recoltex/esmalte_base_agua.html")
+
+
+# =======================================================
+#                     INDUPIN
+# =======================================================
+
+@app.route("/indupin/constructor/tipo1")
+def indupin_constructor_tipo1():
+    return render_template("indupin/constructor/tipo1.html")
+
+@app.route("/indupin/constructor/tipo2")
+def indupin_constructor_tipo2():
+    return render_template("indupin/constructor/tipo2.html")
+
+@app.route("/indupin/homeline/tipo1")
+def indupin_homeline_tipo1():
+    return render_template("indupin/homeline/tipo1.html")
+
+@app.route("/indupin/homeline/tipo2")
+def indupin_homeline_tipo2():
+    return render_template("indupin/homeline/tipo2.html")
+
+
+# =======================================================
+#                     SAPOLIN
+# =======================================================
+
+@app.route("/sapolin/fachadas")
+def sapolin_fachadas():
+    return render_template("sapolin/fachadas.html")
+
+@app.route("/sapolin/barniz")
+def sapolin_barniz():
+    return render_template("sapolin/barniz.html")
+
+@app.route("/sapolin/resina")
+def sapolin_resina():
+    return render_template("sapolin/resina.html")
+
+
+if __name__ == "__main__":
     app.run(debug=True)

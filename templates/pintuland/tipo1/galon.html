@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pintuland – Galón Vinilo Tipo 1</title>
+    <link rel="stylesheet" href="/static_index/styles_index.css">
+
+    <style>
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .color-card {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .color-box {
+            width: 100%;
+            height: 80px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            background-size: cover;
+        }
+        .compare-box {
+            background: #fff5e6;
+            padding: 20px;
+            margin: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .btn-compare {
+            background: #b30000;
+            color: white;
+            padding: 8px 12px;
+            font-size: 14px;
+            margin-top: 8px;
+            border-radius: 8px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <img src="/static_index/logo.png" class="logo">
+    <nav class="nav">
+        <a href="/">Inicio</a>
+        <a href="/catalogo">Catálogo</a>
+        <a href="/asesoria">Asesoría</a>
+        <a href="/envios">Envíos</a>
+    </nav>
+</header>
+
+<section class="hero" style="padding: 40px;">
+    <h1>Pintuland – Galón Vinilo Tipo 1</h1>
+    <p>Todos los tonos disponibles. Selecciona colores para comparar.</p>
+</section>
+
+<!-- COMPARADOR -->
+<div class="compare-box">
+    <h2>Comparar Colores</h2>
+    <p>Aquí aparecerán los colores seleccionados.</p>
+
+    <div id="comparador" style="display:flex; justify-content:center; gap:20px; margin-top:20px;"></div>
+</div>
+
+<section style="padding:20px;">
+    <h2>Tonos Disponibles</h2>
+
+    <div class="color-grid">
+<!-- Lila -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/lila.png')"></div>
+    <h4>Lila</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Lila','/static_index/productos/pintuland/colores/lila.png')">Comparar</a>
+</div>
+
+<!-- Lirio -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/lirio.png')"></div>
+    <h4>Lirio</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Lirio','/static_index/productos/pintuland/colores/lirio.png')">Comparar</a>
+</div>
+
+<!-- Blanco Lila -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/blanco_lila.png')"></div>
+    <h4>Blanco Lila</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Blanco Lila','/static_index/productos/pintuland/colores/blanco_lila.png')">Comparar</a>
+</div>
+
+<!-- Pomarrosa -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/pomarrosa.png')"></div>
+    <h4>Pomarrosa</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Pomarrosa','/static_index/productos/pintuland/colores/pomarrosa.png')">Comparar</a>
+</div>
+
+<!-- Rosa -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/rosa.png')"></div>
+    <h4>Rosa</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Rosa','/static_index/productos/pintuland/colores/rosa.png')">Comparar</a>
+</div>
+
+<!-- Rosa Profundo -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/rosa_profundo.png')"></div>
+    <h4>Rosa Profundo</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Rosa Profundo','/static_index/productos/pintuland/colores/rosa_profundo.png')">Comparar</a>
+</div>
+
+<!-- Magenta -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/magenta.png')"></div>
+    <h4>Magenta</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Magenta','/static_index/productos/pintuland/colores/magenta.png')">Comparar</a>
+</div>
+
+<!-- Violeta -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/violeta.png')"></div>
+    <h4>Violeta</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Violeta','/static_index/productos/pintuland/colores/violeta.png')">Comparar</a>
+</div>
+
+<!-- Mora -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/mora.png')"></div>
+    <h4>Mora</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Mora','/static_index/productos/pintuland/colores/mora.png')">Comparar</a>
+</div>
+
+<!-- Palo de Rosa -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/palo_de_rosa.png')"></div>
+    <h4>Palo de Rosa</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Palo de Rosa','/static_index/productos/pintuland/colores/palo_de_rosa.png')">Comparar</a>
+</div>
+<!-- Azul Oscuro -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/azul_oscuro.png')"></div>
+    <h4>Azul Oscuro</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Azul Oscuro','/static_index/productos/pintuland/colores/azul_oscuro.png')">Comparar</a>
+</div>
+
+<!-- Azul Verano -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/azul_verano.png')"></div>
+    <h4>Azul Verano</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Azul Verano','/static_index/productos/pintuland/colores/azul_verano.png')">Comparar</a>
+</div>
+
+<!-- Azul Pacífico -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/azul_pacifico.png')"></div>
+    <h4>Azul Pacífico</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Azul Pacífico','/static_index/productos/pintuland/colores/azul_pacifico.png')">Comparar</a>
+</div>
+
+<!-- Azul Milano -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/azul_milano.png')"></div>
+    <h4>Azul Milano</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Azul Milano','/static_index/productos/pintuland/colores/azul_milano.png')">Comparar</a>
+</div>
+
+<!-- Azul Cielo -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/azul_cielo.png')"></div>
+    <h4>Azul Cielo</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Azul Cielo','/static_index/productos/pintuland/colores/azul_cielo.png')">Comparar</a>
+</div>
+
+<!-- Azul Porcelana -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/azul_porcelana.png')"></div>
+    <h4>Azul Porcelana</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Azul Porcelana','/static_index/productos/pintuland/colores/azul_porcelana.png')">Comparar</a>
+</div>
+
+<!-- Agua Marina -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/agua_marina.png')"></div>
+    <h4>Agua Marina</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Agua Marina','/static_index/productos/pintuland/colores/agua_marina.png')">Comparar</a>
+</div>
+<!-- Verde Turquesa -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/verde_turquesa.png')"></div>
+    <h4>Verde Turquesa</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Verde Turquesa','/static_index/productos/pintuland/colores/verde_turquesa.png')">Comparar</a>
+</div>
+
+<!-- Azul Océano -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/azul_oceano.png')"></div>
+    <h4>Azul Océano</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Azul Océano','/static_index/productos/pintuland/colores/azul_oceano.png')">Comparar</a>
+</div>
+
+<!-- Verde Intenso -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/verde_intenso.png')"></div>
+    <h4>Verde Intenso</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Verde Intenso','/static_index/productos/pintuland/colores/verde_intenso.png')">Comparar</a>
+</div>
+<!-- Verde Pino -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/verde_pino.png')"></div>
+    <h4>Verde Pino</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Verde Pino','/static_index/productos/pintuland/colores/verde_pino.png')">Comparar</a>
+</div>
+
+<!-- Verde Aceituna -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/verde_aceituna.png')"></div>
+    <h4>Verde Aceituna</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Verde Aceituna','/static_index/productos/pintuland/colores/verde_aceituna.png')">Comparar</a>
+</div>
+
+<!-- Verde Tropical -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/verde_tropical.png')"></div>
+    <h4>Verde Tropical</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Verde Tropical','/static_index/productos/pintuland/colores/verde_tropical.png')">Comparar</a>
+</div>
+
+<!-- Verde Lima -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/verde_lima.png')"></div>
+    <h4>Verde Lima</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Verde Lima','/static_index/productos/pintuland/colores/verde_lima.png')">Comparar</a>
+</div>
+
+<!-- Verde Mar -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/verde_mar.png')"></div>
+    <h4>Verde Mar</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Verde Mar','/static_index/productos/pintuland/colores/verde_mar.png')">Comparar</a>
+</div>
+
+<!-- Menta Fresca -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/menta_fresca.png')"></div>
+    <h4>Menta Fresca</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Menta Fresca','/static_index/productos/pintuland/colores/menta_fresca.png')">Comparar</a>
+</div>
+
+<!-- Blanco Manzana -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/blanco_manzana.png')"></div>
+    <h4>Blanco Manzana</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Blanco Manzana','/static_index/productos/pintuland/colores/blanco_manzana.png')">Comparar</a>
+</div>
+
+<!-- Lima -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/lima.png')"></div>
+    <h4>Lima</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Lima','/static_index/productos/pintuland/colores/lima.png')">Comparar</a>
+</div>
+
+<!-- Ciprés -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/cipres.png')"></div>
+    <h4>Ciprés</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Ciprés','/static_index/productos/pintuland/colores/cipres.png')">Comparar</a>
+</div>
+
+<!-- Verde Chartreuse -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/verde_chartreuse.png')"></div>
+    <h4>Verde Chartreuse</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Verde Chartreuse','/static_index/productos/pintuland/colores/verde_chartreuse.png')">Comparar</a>
+</div>
+
+<!-- Verde Agua -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/verde_agua.png')"></div>
+    <h4>Verde Agua</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Verde Agua','/static_index/productos/pintuland/colores/verde_agua.png')">Comparar</a>
+</div>
+
+<!-- Verde Seda -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/verde_seda.png')"></div>
+    <h4>Verde Seda</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Verde Seda','/static_index/productos/pintuland/colores/verde_seda.png')">Comparar</a>
+</div>
+<!-- Amarillo Luminoso -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/amarillo_luminoso.png')"></div>
+    <h4>Amarillo Luminoso</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Amarillo Luminoso','/static_index/productos/pintuland/colores/amarillo_luminoso.png')">Comparar</a>
+</div>
+
+<!-- Amarillo Caribe -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/amarillo_caribe.png')"></div>
+    <h4>Amarillo Caribe</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Amarillo Caribe','/static_index/productos/pintuland/colores/amarillo_caribe.png')">Comparar</a>
+</div>
+
+<!-- Amarillo -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/amarillo.png')"></div>
+    <h4>Amarillo</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Amarillo','/static_index/productos/pintuland/colores/amarillo.png')">Comparar</a>
+</div>
+
+<!-- Ocre -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/ocre.png')"></div>
+    <h4>Ocre</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Ocre','/static_index/productos/pintuland/colores/ocre.png')">Comparar</a>
+</div>
+
+<!-- Amarillo Oro -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/amarillo_oro.png')"></div>
+    <h4>Amarillo Oro</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Amarillo Oro','/static_index/productos/pintuland/colores/amarillo_oro.png')">Comparar</a>
+</div>
+
+<!-- Amarillo Otoñal -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/amarillo_otoñal.png')"></div>
+    <h4>Amarillo Otoñal</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Amarillo Otoñal','/static_index/productos/pintuland/colores/amarillo_otoñal.png')">Comparar</a>
+</div>
+
+<!-- Tailandés -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/tailandes.png')"></div>
+    <h4>Tailandés</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Tailandés','/static_index/productos/pintuland/colores/tailandes.png')">Comparar</a>
+</div>
+<!-- Naranja Chic -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/naranja_chic.png')"></div>
+    <h4>Naranja Chic</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Naranja Chic','/static_index/productos/pintuland/colores/naranja_chic.png')">Comparar</a>
+</div>
+
+<!-- Crema -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/crema.png')"></div>
+    <h4>Crema</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Crema','/static_index/productos/pintuland/colores/crema.png')">Comparar</a>
+</div>
+
+<!-- Mandarina -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/mandarina.png')"></div>
+    <h4>Mandarina</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Mandarina','/static_index/productos/pintuland/colores/mandarina.png')">Comparar</a>
+</div>
+
+<!-- Arrecife -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/arrecife.png')"></div>
+    <h4>Arrecife</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Arrecife','/static_index/productos/pintuland/colores/arrecife.png')">Comparar</a>
+</div>
+
+<!-- Naranja -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/naranja.png')"></div>
+    <h4>Naranja</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Naranja','/static_index/productos/pintuland/colores/naranja.png')">Comparar</a>
+</div>
+
+<!-- Coral -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/coral.png')"></div>
+    <h4>Coral</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Coral','/static_index/productos/pintuland/colores/coral.png')">Comparar</a>
+</div>
+
+<!-- Curuba -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/curuba.png')"></div>
+    <h4>Curuba</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Curuba','/static_index/productos/pintuland/colores/curuba.png')">Comparar</a>
+</div>
+<!-- Rojo Vivo -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/rojo_vivo.png')"></div>
+    <h4>Rojo Vivo</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Rojo Vivo','/static_index/productos/pintuland/colores/rojo_vivo.png')">Comparar</a>
+</div>
+
+<!-- Rojo Colonial -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/rojo_colonial.png')"></div>
+    <h4>Rojo Colonial</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Rojo Colonial','/static_index/productos/pintuland/colores/rojo_colonial.png')">Comparar</a>
+</div>
+
+<!-- Terracota -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/terracota.png')"></div>
+    <h4>Terracota</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Terracota','/static_index/productos/pintuland/colores/terracota.png')">Comparar</a>
+</div>
+
+<!-- Castaño Claro -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/castaño_claro.png')"></div>
+    <h4>Castaño Claro</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Castaño Claro','/static_index/productos/pintuland/colores/castaño_claro.png')">Comparar</a>
+</div>
+
+<!-- Trigo -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/trigo.png')"></div>
+    <h4>Trigo</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Trigo','/static_index/productos/pintuland/colores/trigo.png')">Comparar</a>
+</div>
+
+<!-- Taupe Piedra -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/taupe_piedra.png')"></div>
+    <h4>Taupe Piedra</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Taupe Piedra','/static_index/productos/pintuland/colores/taupe_piedra.png')">Comparar</a>
+</div>
+<!-- Blanco Hueso -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/blanco_hueso.png')"></div>
+    <h4>Blanco Hueso</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Blanco Hueso','/static_index/productos/pintuland/colores/blanco_hueso.png')">Comparar</a>
+</div>
+
+<!-- Champaña -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/champaña.png')"></div>
+    <h4>Champaña</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Champaña','/static_index/productos/pintuland/colores/champaña.png')">Comparar</a>
+</div>
+
+<!-- Lino Crudo -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/lino_crudo.png')"></div>
+    <h4>Lino Crudo</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Lino Crudo','/static_index/productos/pintuland/colores/lino_crudo.png')">Comparar</a>
+</div>
+
+<!-- Melón -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/melon.png')"></div>
+    <h4>Melón</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Melón','/static_index/productos/pintuland/colores/melon.png')">Comparar</a>
+</div>
+
+<!-- Blanco Durazno -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/blanco_durazno.png')"></div>
+    <h4>Blanco Durazno</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Blanco Durazno','/static_index/productos/pintuland/colores/blanco_durazno.png')">Comparar</a>
+</div>
+
+<!-- Blanco Almendra -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/blanco_almendra.png')"></div>
+    <h4>Blanco Almendra</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Blanco Almendra','/static_index/productos/pintuland/colores/blanco_almendra.png')">Comparar</a>
+</div>
+
+<!-- Bruma -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/bruma.png')"></div>
+    <h4>Bruma</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Bruma','/static_index/productos/pintuland/colores/bruma.png')">Comparar</a>
+</div>
+
+<!-- Arena -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/arena.png')"></div>
+    <h4>Arena</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Arena','/static_index/productos/pintuland/colores/arena.png')">Comparar</a>
+</div>
+
+<!-- Blanco Invierno -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/blanco_invierno.png')"></div>
+    <h4>Blanco Invierno</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Blanco Invierno','/static_index/productos/pintuland/colores/blanco_invierno.png')">Comparar</a>
+</div>
+
+<!-- Blanco -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/blanco.png')"></div>
+    <h4>Blanco</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Blanco','/static_index/productos/pintuland/colores/blanco.png')">Comparar</a>
+</div>
+<!-- Negro -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/negro.png')"></div>
+    <h4>Negro</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Negro','/static_index/productos/pintuland/colores/negro.png')">Comparar</a>
+</div>
+
+<!-- Gris Basalto -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/gris_basalto.png')"></div>
+    <h4>Gris Basalto</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Gris Basalto','/static_index/productos/pintuland/colores/gris_basalto.png')">Comparar</a>
+</div>
+
+<!-- Gris Nube -->
+<div class="color-card">
+    <div class="color-box" style="background-image:url('/static_index/productos/pintuland/colores/gris_nube.png')"></div>
+    <h4>Gris Nube</h4>
+    <a class="btn-compare" onclick="agregarComparacion('Gris Nube','/static_index/productos/pintuland/colores/gris_nube.png')">Comparar</a>
+</div>
+    </div> <!-- cierre color-grid -->
+</section>
+
+<script>
+let seleccionados = [];
+
+function agregarComparacion(nombre, img) {
+    if (seleccionados.length >= 2) {
+        alert("Solo puedes comparar 2 colores a la vez.");
+        return;
+    }
+    seleccionados.push({nombre, img});
+    actualizarComparador();
+}
+
+function actualizarComparador() {
+    const cont = document.getElementById("comparador");
+    cont.innerHTML = "";
+    seleccionados.forEach(c => {
+        cont.innerHTML += `
+            <div style="text-align:center;">
+                <div style="
+                    width:120px; height:120px; 
+                    border-radius:10px; border:1px solid #ccc;
+                    background-size:cover; background-image:url('${c.img}');
+                    margin-bottom:10px;">
+                </div>
+                <strong>${c.nombre}</strong>
+            </div>
+        `;
+    });
+}
+</script>
+
+<footer class="footer">
+    <p>© 2025 Catedral del Color</p>
+</footer>
+
+</body>
+</html>
