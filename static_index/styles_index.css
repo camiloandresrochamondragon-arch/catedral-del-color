@@ -279,3 +279,16 @@ section {
     text-decoration: none;
     border-radius: 6px;
 }
+.btn-remove {
+    margin-top: 8px;
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-remove:hover {
+    background: #c9302c;
+}

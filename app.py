@@ -67,24 +67,23 @@ def pintuland_tipo1_caneca():
 
 @app.route("/pintuland/acriland/galon")
 def pintuland_acriland_galon():
-    return render_template("pintuland/acriland/galon.html")
+    return render_template("pintuland/acriland/galonacrilan.html")
 
 @app.route("/pintuland/acriland/balde")
 def pintuland_acriland_balde():
-    return render_template("pintuland/acriland/balde.html")
+    return render_template("pintuland/acriland/baldeacriland.html")
 
 @app.route("/pintuland/acriland/caneca")
 def pintuland_acriland_caneca():
-    return render_template("pintuland/acriland/caneca.html")
+    return render_template("pintuland/acriland/canecaacriland.html")
 
 
 # =======================================================
 #                     RECOLTEX
 # =======================================================
-
-@app.route("/recoltex/tipo1/galon")
+@app.route("/recoltex/recoltex_tipo1/galonrecoltex/")
 def recoltex_tipo1_galon():
-    return render_template("recoltex/tipo1/galon.html")
+    return render_template("recoltex/recoltex_tipo1/galonrecoltex.html")
 
 @app.route("/recoltex/tipo2/estandar")
 def recoltex_tipo2_estandar():
