@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Recoltex – Vinicol</title>
+    <link rel="stylesheet" href="/static_index/styles_index.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: white;
+            padding: 8px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-contenido {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 120px;
+        }
+
+        .nav a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            color: #e0011a;
+        }
+
+        /* HEADER PRODUCTO */
+        header.producto-header {
+            background: #e0011a;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .info-producto {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        /* COLORES */
+        .colores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .color-item {
+            background: white;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .color-item img,
+        .comp-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+            margin: auto;
+        }
+
+        .btn {
+            background: #e0011a;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            margin-top: 6px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* COMPARADOR */
+        .comparador {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 35px;
+        }
+
+        .comparador-items {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .comp-item {
+            width: 140px;
+        }
+
+        .btn-quitar {
+            background: #444;
+            padding: 5px 10px;
+            margin-top: 8px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAV SUPERIOR -->
+<header class="navbar">
+    <div class="nav-contenido">
+        <img src="/static_index/logo.png" class="logo" alt="Logo Catedral del Color">
+        <nav class="nav">
+            <a href="/">Inicio</a>
+            <a href="/catalogo">Catálogo</a>
+            <a href="/asesoria">Asesoría</a>
+            <a href="/envios">Envíos</a>
+        </nav>
+    </div>
+</header>
+
+<!-- TÍTULO -->
+<header class="producto-header">
+    <h1>Recoltex – Vinicol</h1>
+</header>
+
+<div class="contenedor">
+
+    <!-- INFO DEL PRODUCTO -->
+    <div class="info-producto">
+        <h2>Descripción</h2>
+        <p>
+            Vinicol es un vinilo acrílico de alto desempeño de la línea Recoltex,
+            diseñado para interiores que requieren mayor resistencia, durabilidad
+            y mejor acabado que un vinilo tipo 1 tradicional.
+        </p>
+
+        <p>
+            Gracias a su mayor contenido de resinas y mejor poder cubriente,
+            Vinicol se comporta como un vinilo <strong>cercano a un tipo 2</strong>,
+            ofreciendo mayor lavabilidad y resistencia al uso diario.
+        </p>
+
+        <h3>Rendimiento por Galón</h3>
+        <ul>
+            <li>22 a 28 m² por mano</li>
+            <li>2 manos recomendadas</li>
+            <li>Rendimiento final: 11 a 14 m²</li>
+        </ul>
+
+        <h3>¿Por qué Vinicol es casi Tipo 2?</h3>
+        <ul>
+            <li>Mayor concentración de resinas acrílicas</li>
+            <li>Mejor cubrimiento en colores intensos</li>
+            <li>Mayor resistencia al lavado</li>
+            <li>Acabado más uniforme y duradero</li>
+        </ul>
+
+        <h3>Modo de Aplicación</h3>
+        <ol>
+            <li>Superficie limpia, seca y sin polvo.</li>
+            <li>Diluir máximo 10% con agua.</li>
+            <li>Aplicar con rodillo, brocha o pistola.</li>
+            <li>Dejar secar 2 horas entre manos.</li>
+        </ol>
+    </div>
+
+    <!-- COMPARADOR -->
+    <div class="comparador">
+        <h2>Comparar Colores Seleccionados</h2>
+        <div id="comparador" class="comparador-items"></div>
+    </div>
+
+    <!-- LISTA DE COLORES -->
+    <h2>Colores Disponibles</h2>
+    <div class="colores-grid" id="listaColores"></div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+const coloresRecoltex = [
+    "aceituna","almendra","amarillo_puro","amazonas","aqua","arrecife","atlantico","azul",
+    "blanco","blanco_luna","bosque","cafe","cereza","champaña","Chartreuse","chic","cipres","copper",
+    "coral","crema","desierto","durazno","gris_basalto","hielo","invierno","kiwi","kiwi_claro",
+    "lavanda","mandarina","manzana","melocoton","milano","naranja","naranja_fresca","negro",
+    "oceanico","ocre","rojo","rojo_colonial","rosa","seda","Sunset_Orange","terracota","trigo",
+    "trigo_rojiso","turquesa","verde","verde_esmeralda","verde_pino","verde_primaveral","violeta",
+    "zafiro","melon"
+];
+
+const lista = document.getElementById("listaColores");
+const comparador = document.getElementById("comparador");
+let comparar = [];
+
+function renderColores() {
+    lista.innerHTML = "";
+    coloresRecoltex.forEach(color => {
+        lista.innerHTML += `
+            <div class="color-item">
+                <img src="/static_index/productos/recoltex/recoltex_tipo1/colores/${color}.png" alt="${color}">
+                <p>${color.replace(/_/g, " ")}</p>
+                <button class="btn" onclick="agregarComparacion('${color}')">Comparar</button>
+            </div>
+        `;
+    });
+}
+
+function agregarComparacion(color) {
+    if (comparar.length >= 2) {
+        alert("Solo puedes comparar 2 colores.");
+        return;
+    }
+    if (!comparar.includes(color)) {
+        comparar.push(color);
+        actualizarComparador();
+    }
+}
+
+function quitarColor(color) {
+    comparar = comparar.filter(c => c !== color);
+    actualizarComparador();
+}
+
+function actualizarComparador() {
+    comparador.innerHTML = "";
+    comparar.forEach(color => {
+        comparador.innerHTML += `
+            <div class="comp-item">
+                <img src="/static_index/productos/recoltex/recoltex_tipo1/colores/${color}.png">
+                <p>${color.replace(/_/g, " ")}</p>
+                <button class="btn-quitar" onclick="quitarColor('${color}')">Quitar</button>
+            </div>
+        `;
+    });
+}
+
+renderColores();
+</script>
+
+</body>
+</html>

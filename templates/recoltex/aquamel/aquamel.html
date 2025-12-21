@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Aquamel – Impermeabilizante Acrílico</title>
+    <link rel="stylesheet" href="/static_index/styles_index.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:#f2f2f2;
+            margin:0;
+        }
+
+        .producto-header {
+            background:#006c9a;
+            color:white;
+            padding:20px;
+            text-align:center;
+        }
+
+        .contenedor {
+            width:90%;
+            max-width:1100px;
+            margin:auto;
+            padding:20px;
+        }
+
+        .info-producto,
+        .comparador {
+            background:white;
+            padding:20px;
+            border-radius:8px;
+            margin-bottom:25px;
+        }
+
+        .colores-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+            gap:18px;
+        }
+
+        .color-item,
+        .comp-item {
+            background:white;
+            padding:10px;
+            border-radius:6px;
+            text-align:center;
+            box-shadow:0 2px 5px rgba(0,0,0,.2);
+        }
+
+        img {
+            width:120px;
+            height:120px;
+            object-fit:cover;
+            border-radius:6px;
+            display:block;
+            margin:auto;
+        }
+
+        .btn {
+            background:#006c9a;
+            color:white;
+            border:none;
+            padding:6px 12px;
+            border-radius:5px;
+            margin-top:6px;
+            cursor:pointer;
+        }
+
+        .btn-quitar {
+            background:#444;
+            color:white;
+            border:none;
+            padding:5px 10px;
+            border-radius:5px;
+            margin-top:6px;
+            cursor:pointer;
+        }
+
+        .comparador-items {
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            flex-wrap:wrap;
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="producto-header">
+    <h1>Aquamel – Impermeabilizante Acrílico</h1>
+</header>
+
+<div class="contenedor">
+
+    <!-- INFO -->
+    <div class="info-producto">
+        <h2>¿Para qué sirve Aquamel?</h2>
+        <p>
+            Aquamel es un <strong>impermeabilizante acrílico</strong> diseñado para proteger
+            superficies expuestas a la humedad y a la intemperie, formando una película flexible
+            que evita filtraciones de agua.
+        </p>
+
+        <h3>Aplicaciones ideales</h3>
+        <ul>
+            <li>Terrazas y cubiertas</li>
+            <li>Planchas y losas</li>
+            <li>Muros exteriores</li>
+            <li>Zonas con alta exposición a lluvia</li>
+        </ul>
+
+        <h3>Características principales</h3>
+        <ul>
+            <li>Excelente impermeabilidad</li>
+            <li>Alta adherencia sobre concreto y mampostería</li>
+            <li>Buena elasticidad</li>
+            <li>Resistente a la intemperie</li>
+        </ul>
+
+        <p>
+            Aquamel se comercializa principalmente en <strong>blanco y negro</strong>.
+            Los colores claros mostrados a continuación son <strong>preparados bajo pedido</strong>
+            a partir de la base blanca, en galón o caneca.
+        </p>
+    </div>
+
+    <!-- COMPARADOR -->
+    <div class="comparador">
+        <h2>Comparar Colores</h2>
+        <div id="comparador" class="comparador-items"></div>
+    </div>
+
+    <!-- COLORES -->
+    <h2>Colores Disponibles</h2>
+    <div class="colores-grid" id="listaColores"></div>
+
+</div>
+
+<script>
+const coloresAquamel = [
+    "blanco",
+    "negro",
+    "blanco_luna",
+    "almendra",
+    "crema",
+    "hielo",
+    "champaña",
+    "arena",
+    "trigo",
+    "durazno",
+    "melocoton"
+];
+
+const lista = document.getElementById("listaColores");
+const comparador = document.getElementById("comparador");
+let comparar = [];
+
+/* Render colores */
+function renderColores() {
+    lista.innerHTML = "";
+    coloresAquamel.forEach(color => {
+        lista.innerHTML += `
+            <div class="color-item">
+                <img src="/static_index/productos/recoltex/recoltex_tipo1/colores/${color}.png">
+                <p>${color.replace(/_/g," ")}</p>
+                <button class="btn" onclick="agregarComparacion('${color}')">
+                    Comparar
+                </button>
+            </div>
+        `;
+    });
+}
+
+/* Agregar color */
+function agregarComparacion(color) {
+    if (comparar.length >= 2) {
+        alert("Solo puedes comparar 2 colores.");
+        return;
+    }
+    if (!comparar.includes(color)) {
+        comparar.push(color);
+        actualizarComparador();
+    }
+}
+
+/* Quitar color */
+function quitarColor(color) {
+    comparar = comparar.filter(c => c !== color);
+    actualizarComparador();
+}
+
+/* Actualizar comparador */
+function actualizarComparador() {
+    comparador.innerHTML = "";
+    comparar.forEach(color => {
+        comparador.innerHTML += `
+            <div class="comp-item">
+                <img src="/static_index/productos/recoltex/recoltex_tipo1/colores/${color}.png">
+                <p>${color.replace(/_/g," ")}</p>
+                <button class="btn-quitar" onclick="quitarColor('${color}')">
+                    Quitar
+                </button>
+            </div>
+        `;
+    });
+}
+
+renderColores();
+</script>
+
+</body>
+</html>

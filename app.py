@@ -87,24 +87,26 @@ def recoltex_tipo1_galon():
 
 @app.route("/recoltex/tipo2/estandar")
 def recoltex_tipo2_estandar():
-    return render_template("recoltex/tipo2/estandar.html")
+    return render_template("recoltex/estandar/estandar.html")
 
 @app.route("/recoltex/tipo2/superior")
 def recoltex_tipo2_superior():
-    return render_template("recoltex/tipo2/superior.html")
+    return render_template("recoltex/superior/superior.html")
 
 @app.route("/recoltex/hidroplast")
 def recoltex_hidroplast():
-    return render_template("recoltex/hidroplast.html")
+    return render_template("recoltex/hidroplast/hidroplast.html")
 
 @app.route("/recoltex/vinicol")
 def recoltex_vinicol():
-    return render_template("recoltex/vinicol.html")
+    return render_template("recoltex/vinicol/vinicol.html")
 
 @app.route("/recoltex/esmalte-base-agua")
 def recoltex_esmalte_base_agua():
-    return render_template("recoltex/esmalte_base_agua.html")
-
+    return render_template("recoltex/aquamel/aquamel.html")
+@app.route("/recoltex/resina-acrilica")
+def recoltex_resina_acrilica():
+    return render_template("recoltex/resina_acrilica/resina_acrilica_recoltex.html" )
 
 # =======================================================
 #                     INDUPIN

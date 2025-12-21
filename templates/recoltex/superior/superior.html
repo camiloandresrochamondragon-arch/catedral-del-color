@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Recoltex – Tipo 2 Superior</title>
+    <link rel="stylesheet" href="/static_index/styles_index.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:#f2f2f2;
+            margin:0;
+        }
+
+        .producto-header {
+            background:#b00014;
+            color:white;
+            padding:20px;
+            text-align:center;
+        }
+
+        .contenedor {
+            width:90%;
+            max-width:1100px;
+            margin:auto;
+            padding:20px;
+        }
+
+        .info-producto,
+        .comparador {
+            background:white;
+            padding:20px;
+            border-radius:8px;
+            margin-bottom:25px;
+        }
+
+        .colores-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+            gap:18px;
+        }
+
+        .color-item,
+        .comp-item {
+            background:white;
+            padding:10px;
+            border-radius:6px;
+            text-align:center;
+            box-shadow:0 2px 5px rgba(0,0,0,.2);
+        }
+
+        img {
+            width:120px;
+            height:120px;
+            object-fit:cover;
+            border-radius:6px;
+            display:block;
+            margin:auto;
+        }
+
+        .btn {
+            background:#b00014;
+            color:white;
+            border:none;
+            padding:6px 12px;
+            border-radius:5px;
+            margin-top:6px;
+            cursor:pointer;
+        }
+
+        .btn-quitar {
+            background:#444;
+            color:white;
+            border:none;
+            padding:5px 10px;
+            border-radius:5px;
+            margin-top:6px;
+            cursor:pointer;
+        }
+
+        .comparador-items {
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            flex-wrap:wrap;
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="producto-header">
+    <h1>Recoltex – Tipo 2 Superior</h1>
+</header>
+
+<div class="contenedor">
+
+    <!-- INFO -->
+    <div class="info-producto">
+        <h2>¿Para qué sirve el Tipo 2 Superior?</h2>
+        <p>
+            El Tipo 2 Superior es la línea de mayor desempeño de Recoltex,
+            diseñada para superficies de <strong>alto tráfico</strong> donde se
+            requiere máxima durabilidad, resistencia y lavabilidad.
+        </p>
+
+        <h3>Aplicaciones ideales</h3>
+        <ul>
+            <li>Hospitales y clínicas</li>
+            <li>Centros comerciales</li>
+            <li>Pasillos y escaleras</li>
+            <li>Edificios institucionales</li>
+        </ul>
+
+        <h3>Ventajas</h3>
+        <ul>
+            <li>Lavabilidad superior</li>
+            <li>Excelente adherencia</li>
+            <li>Acabado uniforme y más cerrado</li>
+        </ul>
+
+        <p>
+            Este producto se comercializa principalmente en <strong>blanco</strong>.
+            Los colores mostrados a continuación son <strong>tonos claros preparados bajo pedido</strong>
+            en galón o caneca, ya que la mayoría de presentaciones vienen en base blanca.
+        </p>
+    </div>
+
+    <!-- COMPARADOR -->
+    <div class="comparador">
+        <h2>Comparar Colores</h2>
+        <div id="comparador" class="comparador-items"></div>
+    </div>
+
+    <!-- COLORES -->
+    <h2>Colores Claros Disponibles</h2>
+    <div class="colores-grid" id="listaColores"></div>
+
+</div>
+
+<script>
+const coloresClaros = [
+    "blanco",
+    "blanco_luna",
+    "almendra",
+    "crema",
+    "hielo",
+    "lino_crudo",
+    "champaña",
+    "arena",
+    "trigo",
+    "durazno",
+    "melocoton",
+    "blanco_manzana"
+];
+
+const lista = document.getElementById("listaColores");
+const comparador = document.getElementById("comparador");
+let comparar = [];
+
+/* Render colores */
+function renderColores() {
+    lista.innerHTML = "";
+    coloresClaros.forEach(color => {
+        lista.innerHTML += `
+            <div class="color-item">
+                <img src="/static_index/productos/recoltex/recoltex_tipo1/colores/${color}.png">
+                <p>${color.replace(/_/g," ")}</p>
+                <button class="btn" onclick="agregarComparacion('${color}')">
+                    Comparar
+                </button>
+            </div>
+        `;
+    });
+}
+
+/* Agregar */
+function agregarComparacion(color) {
+    if (comparar.length >= 2) {
+        alert("Solo puedes comparar 2 colores.");
+        return;
+    }
+    if (!comparar.includes(color)) {
+        comparar.push(color);
+        actualizarComparador();
+    }
+}
+
+/* Quitar */
+function quitarColor(color) {
+    comparar = comparar.filter(c => c !== color);
+    actualizarComparador();
+}
+
+/* Actualizar comparador */
+function actualizarComparador() {
+    comparador.innerHTML = "";
+    comparar.forEach(color => {
+        comparador.innerHTML += `
+            <div class="comp-item">
+                <img src="/static_index/productos/recoltex/recoltex_tipo1/colores/${color}.png">
+                <p>${color.replace(/_/g," ")}</p>
+                <button class="btn-quitar" onclick="quitarColor('${color}')">
+                    Quitar
+                </button>
+            </div>
+        `;
+    });
+}
+
+renderColores();
+</script>
+
+</body>
+</html>

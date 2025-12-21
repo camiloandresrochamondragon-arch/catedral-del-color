@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Recoltex – Tipo 2 Estándar</title>
+    <link rel="stylesheet" href="/static_index/styles_index.css">
+
+    <style>
+        body { font-family: Arial, sans-serif; background:#f2f2f2; margin:0; }
+
+        .navbar {
+            background:white;
+            padding:8px 20px;
+            border-bottom:1px solid #ddd;
+        }
+        .nav-contenido {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+        }
+        .logo { width:120px; }
+        .nav a {
+            margin:0 10px;
+            color:#333;
+            font-weight:bold;
+            text-decoration:none;
+        }
+        .nav a:hover { color:#e0011a; }
+
+        header.producto-header {
+            background:#e0011a;
+            color:white;
+            padding:20px;
+            text-align:center;
+        }
+
+        .contenedor {
+            width:90%;
+            max-width:1100px;
+            margin:auto;
+            padding:20px;
+        }
+
+        .info-producto {
+            background:white;
+            padding:20px;
+            border-radius:8px;
+            margin-bottom:25px;
+        }
+
+        .comparador {
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            margin-bottom:30px;
+        }
+
+        .comparador-items {
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .comp-item img,
+        .color-item img {
+            width:120px;
+            height:120px;
+            object-fit:cover;
+            border-radius:6px;
+            display:block;
+            margin:auto;
+        }
+
+        .colores-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+            gap:18px;
+        }
+
+        .color-item {
+            background:white;
+            padding:10px;
+            border-radius:6px;
+            text-align:center;
+            box-shadow:0 2px 5px rgba(0,0,0,.2);
+        }
+
+        .btn {
+            background:#e0011a;
+            color:white;
+            border:none;
+            padding:6px 12px;
+            margin-top:6px;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .btn-quitar {
+            background:#444;
+            color:white;
+            border:none;
+            padding:5px 10px;
+            border-radius:5px;
+            margin-top:6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="nav-contenido">
+        <img src="/static_index/logo.png" class="logo">
+        <nav class="nav">
+            <a href="/">Inicio</a>
+            <a href="/catalogo">Catálogo</a>
+            <a href="/asesoria">Asesoría</a>
+            <a href="/envios">Envíos</a>
+        </nav>
+    </div>
+</header>
+
+<header class="producto-header">
+    <h1>Recoltex – Tipo 2 Estándar</h1>
+</header>
+
+<div class="contenedor">
+
+<div class="info-producto">
+    <h2>¿Para qué sirve el Tipo 2 Estándar?</h2>
+    <p>
+        El Recoltex Tipo 2 Estándar es un vinilo de mayor resistencia,
+        diseñado para proyectos institucionales, comerciales y residenciales
+        donde se requiere durabilidad superior al tipo 1.
+    </p>
+
+    <h3>Usos recomendados</h3>
+    <ul>
+        <li>Colegios y universidades</li>
+        <li>Hospitales y clínicas</li>
+        <li>Oficinas y edificios</li>
+        <li>Viviendas con alto tránsito</li>
+    </ul>
+
+    <h3>Rendimiento</h3>
+    <ul>
+        <li>22 a 26 m² por mano</li>
+        <li>Alta resistencia al lavado</li>
+        <li>Excelente cubrimiento</li>
+    </ul>
+
+    <h3>Importante sobre los colores</h3>
+    <p>
+        Este producto se comercializa principalmente en <strong>blanco</strong>.
+        Los colores mostrados a continuación son <strong>colores claros</strong>
+        que pueden ser <strong>preparados bajo pedido</strong> en galones o canecas.
+        <br><br>
+        <strong>No se preparan colores oscuros</strong> debido a la base del producto.
+    </p>
+</div>
+
+<div class="comparador">
+    <h2>Comparar Colores</h2>
+    <div id="comparador" class="comparador-items"></div>
+</div>
+
+<h2>Colores Claros Disponibles</h2>
+<div class="colores-grid" id="listaColores"></div>
+
+</div>
+
+<script>
+const coloresClaros = [
+    "blanco","blanco_luna","almendra","crema","hielo","lino_crudo",
+    "champaña","arena","trigo","durazno","melocoton","blanco_manzana"
+];
+
+const lista = document.getElementById("listaColores");
+const comparador = document.getElementById("comparador");
+let comparar = [];
+
+function renderColores(){
+    lista.innerHTML="";
+    coloresClaros.forEach(c=>{
+        lista.innerHTML+=`
+        <div class="color-item">
+            <img src="/static_index/productos/recoltex/recoltex_tipo1/colores/${c}.png">
+            <p>${c.replace(/_/g," ")}</p>
+            <button class="btn" onclick="agregar('${c}')">Comparar</button>
+        </div>`;
+    });
+}
+
+function agregar(c){
+    if(comparar.length>=2) return alert("Máximo 2 colores");
+    if(!comparar.includes(c)){ comparar.push(c); actualizar(); }
+}
+
+function quitar(c){
+    comparar = comparar.filter(x=>x!==c);
+    actualizar();
+}
+
+function actualizar(){
+    comparador.innerHTML="";
+    comparar.forEach(c=>{
+        comparador.innerHTML+=`
+        <div class="comp-item">
+            <img src="/static_index/productos/recoltex/recoltex_tipo1/colores/${c}.png">
+            <p>${c.replace(/_/g," ")}</p>
+            <button class="btn-quitar" onclick="quitar('${c}')">Quitar</button>
+        </div>`;
+    });
+}
+
+renderColores();
+</script>
+
+</body>
+</html>
