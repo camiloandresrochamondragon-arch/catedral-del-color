@@ -114,11 +114,11 @@ def recoltex_resina_acrilica():
 
 @app.route("/indupin/constructor/tipo1")
 def indupin_constructor_tipo1():
-    return render_template("indupin/constructor/tipo1.html")
+    return render_template("indupin/constructor/tipo1constructor.html")
 
 @app.route("/indupin/constructor/tipo2")
 def indupin_constructor_tipo2():
-    return render_template("indupin/constructor/tipo2.html")
+    return render_template("indupin/constructor/tipo2constructor.html")
 
 @app.route("/indupin/homeline/tipo1")
 def indupin_homeline_tipo1():

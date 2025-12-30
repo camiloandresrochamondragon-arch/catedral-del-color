@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Constructor Tipo 2 – Indupin</title>
+<link rel="stylesheet" href="/static_index/styles_index.css">
+
+<style>
+body{font-family:Arial;background:#f2f2f2;margin:0}
+header{background:#2874a6;color:white;padding:20px;text-align:center}
+.contenedor{max-width:1100px;margin:auto;padding:20px}
+
+.info{
+    background:#ebf5fb;
+    border-left:6px solid #2874a6;
+    padding:20px;
+    border-radius:6px;
+}
+
+.color-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+    gap:18px;
+}
+
+.color-card{
+    background:white;
+    padding:12px;
+    border-radius:8px;
+    text-align:center;
+}
+.color-img{
+    height:120px;
+    background-size:cover;
+    border-radius:6px;
+}
+
+.btn-compare{
+    background:#2c7ef9;
+    color:white;
+    border:none;
+    padding:6px 10px;
+    border-radius:4px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Constructor Tipo 2 – Indupin</h1>
+</header>
+
+<div class="contenedor">
+
+<div class="info">
+<h2>¿Para qué sirve Constructor Tipo 2?</h2>
+<p>
+Vinilo para obra blanca con mejor desempeño que el Tipo 1.
+Recomendado para proyectos grandes.
+</p>
+
+<ul>
+<li>Mayor cubrimiento</li>
+<li>Mejor adherencia</li>
+<li>Más durabilidad</li>
+</ul>
+</div>
+
+<!-- ================= PALETA ================= -->
+<section style="padding:30px 10px 40px;">
+
+<h2 style="text-align:center;">Colores Disponibles</h2>
+<p style="text-align:center; max-width:800px; margin:auto;">
+Este producto se comercializa principalmente en <strong>blanco</strong>.
+Los tonos claros se <strong>preparan bajo pedido</strong>.
+</p>
+
+<!-- CLAROS -->
+<h3 style="margin-top:40px;">🤍 Tonos Claros Preparables</h3>
+<div class="color-grid" id="colores-claros"></div>
+
+<!-- BASE -->
+<h3 style="margin-top:50px;">🎨 Colores Base para Mezcla</h3>
+<p style="max-width:700px;">
+Estos colores se usan únicamente para ajustar y preparar otros tonos.
+</p>
+<div class="color-grid" id="colores-base"></div>
+
+</section>
+
+</div>
+
+<script>
+/* ===== COLORES CLAROS ===== */
+const coloresClarosPreparables = [
+    "blanco","blanco_almendra","blanco_durazno","blanco_hueso",
+    "blanco_invierno","blanco_lila","blanco_manzana",
+    "crema","champaña","lino_crudo","bruma",
+    "gris_nube","arena","trigo","melon",
+    "lirio","lila","menta_fresca","verde_agua"
+];
+
+/* ===== COLORES BASE ===== */
+const coloresBaseMezcla = [
+    "negro","ocre","rojo_vivo","violeta","azul_oscuro"
+];
+
+/* ===== GENERADOR ===== */
+function generarColores(lista, contenedorId, permitirComparar=true){
+    const cont = document.getElementById(contenedorId);
+    cont.innerHTML = lista.map(c=>{
+        const nombre = c.replace(/_/g," ").replace(/\b\w/g,l=>l.toUpperCase());
+        const img = `/static_index/productos/pintuland/colorest1/${c}.png`;
+        return `
+            <div class="color-card">
+                <div class="color-img" style="background-image:url('${img}')"></div>
+                <p>${nombre}</p>
+                ${permitirComparar
+                    ? `<button class="btn-compare" onclick="agregarComparacionBtn(this)"
+                        data-name="${c}" data-img="${img}">Comparar</button>`
+                    : `<small style="color:#666;">Color base para mezcla</small>`
+                }
+            </div>`;
+    }).join("");
+}
+
+/* ===== EJECUCIÓN ===== */
+generarColores(coloresClarosPreparables,"colores-claros",true);
+generarColores(coloresBaseMezcla,"colores-base",false);
+</script>
+
+</body>
+</html>

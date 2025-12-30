@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Constructor Tipo 1 – Indupin</title>
+<link rel="stylesheet" href="/static_index/styles_index.css">
+
+<style>
+body{font-family:Arial;background:#f2f2f2;margin:0}
+header{background:#1e8449;color:white;padding:20px;text-align:center}
+.contenedor{max-width:1100px;margin:auto;padding:20px}
+
+/* BLOQUES DE INFO */
+.info{
+    background:#eafaf1;
+    border-left:6px solid #1e8449;
+    padding:20px;
+    border-radius:6px;
+}
+
+/* ===== PALETA ===== */
+.color-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+    gap:18px;
+    margin-top:20px;
+}
+
+.color-card{
+    background:white;
+    border-radius:8px;
+    padding:12px;
+    text-align:center;
+    box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+
+.color-img{
+    width:100%;
+    height:120px;
+    background-size:cover;
+    background-position:center;
+    border-radius:6px;
+    margin-bottom:8px;
+}
+
+.btn-compare{
+    background:#1e8449;
+    color:white;
+    border:none;
+    padding:6px 10px;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+.btn-compare:hover{
+    background:#16663a;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Constructor Tipo 1 – Indupin</h1>
+</header>
+
+<div class="contenedor">
+
+<div class="info">
+<h2>¿Para qué sirve Constructor Tipo 1?</h2>
+<p>
+Constructor Tipo 1 es un vinilo de <strong>obra blanca</strong>, diseñado para
+proyectos en etapa de construcción o remodelación.
+</p>
+
+<h3>Usos</h3>
+<ul>
+<li>Primeras manos</li>
+<li>Obras nuevas</li>
+<li>Muros en obra gris</li>
+</ul>
+
+<h3>Características</h3>
+<ul>
+<li>Económico</li>
+<li>Buen cubrimiento inicial</li>
+<li>Ideal como base</li>
+</ul>
+
+<p>
+Se comercializa en <strong>blanco</strong>.  
+Los colores claros se preparan únicamente en <strong>galón o caneca</strong>.
+</p>
+</div>
+
+<!-- ================= PALETA ================= -->
+<section style="padding:30px 10px 40px;">
+
+<h2 style="text-align:center;">Colores Disponibles</h2>
+<p style="text-align:center; max-width:800px; margin:auto;">
+Este producto se comercializa principalmente en <strong>blanco</strong>.
+Los tonos claros se <strong>preparan bajo pedido</strong>.
+</p>
+
+<!-- CLAROS -->
+<h3 style="margin-top:40px;">🤍 Tonos Claros Preparables</h3>
+<div class="color-grid" id="colores-claros"></div>
+
+<!-- BASE -->
+<h3 style="margin-top:50px;">🎨 Colores Base para Mezcla</h3>
+<p style="max-width:700px;">
+Estos colores se usan únicamente para ajustar y preparar otros tonos.
+</p>
+<div class="color-grid" id="colores-base"></div>
+
+</section>
+
+</div>
+
+<script>
+/* ===== COLORES CLAROS ===== */
+const coloresClarosPreparables = [
+    "blanco","blanco_almendra","blanco_durazno","blanco_hueso",
+    "blanco_invierno","blanco_lila","blanco_manzana",
+    "crema","champaña","lino_crudo","bruma",
+    "gris_nube","arena","trigo","melon",
+    "lirio","lila","menta_fresca","verde_agua"
+];
+
+/* ===== COLORES BASE ===== */
+const coloresBaseMezcla = [
+    "negro","ocre","rojo_vivo","violeta","azul_oscuro"
+];
+
+/* ===== GENERADOR ===== */
+function generarColores(lista, contenedorId, permitirComparar=true){
+    const cont = document.getElementById(contenedorId);
+    cont.innerHTML = lista.map(c=>{
+        const nombre = c.replace(/_/g," ").replace(/\b\w/g,l=>l.toUpperCase());
+        const img = `/static_index/productos/pintuland/colorest1/${c}.png`;
+        return `
+            <div class="color-card">
+                <div class="color-img" style="background-image:url('${img}')"></div>
+                <p>${nombre}</p>
+                ${permitirComparar
+                    ? `<button class="btn-compare" onclick="agregarComparacionBtn(this)"
+                        data-name="${c}" data-img="${img}">Comparar</button>`
+                    : `<small style="color:#666;">Color base para mezcla</small>`
+                }
+            </div>`;
+    }).join("");
+}
+
+/* ===== EJECUCIÓN ===== */
+generarColores(coloresClarosPreparables,"colores-claros",true);
+generarColores(coloresBaseMezcla,"colores-base",false);
+</script>
+
+</body>
+</html>
