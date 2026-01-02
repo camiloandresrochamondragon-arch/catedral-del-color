@@ -81,19 +81,21 @@ def pintuland_acriland_caneca():
 # =======================================================
 #                     RECOLTEX
 # =======================================================
-@app.route("/recoltex/recoltex_tipo1/galonrecoltex/")
-def recoltex_tipo1_galon():
-    return render_template("recoltex/recoltex_tipo1/galonrecoltex.html")
+# =========================
+#        RECOLTEX
+# =========================
 
 @app.route("/recoltex/tipo2/estandar")
 def recoltex_tipo2_estandar():
     return render_template("recoltex/estandar/estandar.html")
 
+
 @app.route("/recoltex/tipo2/superior")
 def recoltex_tipo2_superior():
     return render_template("recoltex/superior/superior.html")
 
-@app.route("/recoltex/hidroplast")
+
+@app.route("/recoltex/hidroplast/hidroplast.html/")
 def recoltex_hidroplast():
     return render_template("recoltex/hidroplast/hidroplast.html")
 
@@ -101,12 +103,17 @@ def recoltex_hidroplast():
 def recoltex_vinicol():
     return render_template("recoltex/vinicol/vinicol.html")
 
-@app.route("/recoltex/esmalte-base-agua")
-def recoltex_esmalte_base_agua():
-    return render_template("recoltex/aquamel/aquamel.html")
-@app.route("/recoltex/resina-acrilica")
+@app.route("/recoltex/recolcryl/recolcryl.html")
 def recoltex_resina_acrilica():
-    return render_template("recoltex/resina_acrilica/resina_acrilica_recoltex.html" )
+    return render_template("recoltex/recolcryl/recolcryl.html")
+
+@app.route("/recoltex/recoltex_tipo1/galonrecoltex/")
+def recoltex_tipo1_galonrecoltex():
+    return render_template("recoltex/recoltex_tipo1/galonrecoltex.html")
+
+@app.route("/recoltex/aquamel/aquamel.html")
+def recoltex_tipo1_aquamel():
+    return render_template("recoltex/aquamel/aquamel.html")
 
 # =======================================================
 #                     INDUPIN
