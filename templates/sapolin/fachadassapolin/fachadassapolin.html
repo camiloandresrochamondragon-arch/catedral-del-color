@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Fachadas Sapolin</title>
+<link rel="stylesheet" href="/static_index/styles_index.css">
+
+<style>
+body{font-family:Arial;background:#f4f6f6;margin:0}
+header{background:#7f1bae;color:white;padding:30px;text-align:center}
+.contenedor{max-width:1200px;margin:auto;padding:25px}
+
+/* INFO */
+.info{
+background:#ebf5fb;
+border-left:6px solid #7f1bae;
+padding:25px;
+margin-bottom:40px;
+border-radius:8px;
+}
+
+/* COLORES */
+.color-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.color-card{
+background:white;
+border-radius:10px;
+box-shadow:0 4px 8px rgba(0,0,0,.1);
+text-align:center;
+padding:12px;
+}
+
+.color-img{
+width:100%;
+height:110px;
+border-radius:6px;
+background-size:cover;
+background-position:center;
+border:1px solid #ddd;
+}
+
+.color-card p{
+margin:8px 0 4px;
+font-size:14px;
+font-weight:bold;
+}
+
+.btn{
+background:#154360;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:6px;
+cursor:pointer;
+font-size:13px;
+}
+
+.btn:hover{background:#b353e7}
+
+/* COMPARADOR */
+.comparador{
+margin-top:50px;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 12px rgba(0,0,0,.12);
+display:none;
+}
+
+.compare-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:20px;
+}
+
+.compare-box{
+text-align:center;
+}
+
+.compare-img{
+height:180px;
+border-radius:8px;
+background-size:cover;
+background-position:center;
+border:1px solid #ccc;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Fachadas Sapolin</h1>
+<p>Alta protección garantizada a la intemperie</p>
+</header>
+
+<div class="contenedor">
+
+<div class="info">
+<h2>¿Qué es Fachadas Sapolin?</h2>
+<p>
+Vinilo acrílico para <strong>exteriores</strong>, resistente a sol,
+lluvia, humedad y contaminación ambiental.
+</p>
+
+<h3>Beneficios</h3>
+<ul>
+<li>Excelente durabilidad exterior</li>
+<li>Protección contra hongos y algas</li>
+<li>Alta retención del color</li>
+<li>Buen cubrimiento y rendimiento</li>
+</ul>
+</div>
+
+<h2 style="text-align:center;">Carta de Colores Fachadas Sapolin</h2>
+
+<div class="color-grid" id="colores"></div>
+
+<!-- COMPARADOR -->
+<div class="comparador" id="comparador">
+<h2 style="text-align:center;">Comparador de Colores</h2>
+
+<div class="compare-grid" id="compare-grid"></div>
+
+<div style="text-align:center;margin-top:20px;">
+<button class="btn" onclick="limpiarComparador()">Quitar ambos colores</button>
+</div>
+</div>
+
+</div>
+
+<script>
+/* ================= COLORES ================= */
+const coloresFachadas = [
+"almendra","azul","ceiba_claro","cemento_claro","grafito","gris_basalto",
+"negro","nogal","rojo","rojo_colonial","verde_primaveral","ladrillo",
+"amarillo","azul_caribe","bajo_cero","blanco","brisa_del_sur","chocolate",
+"cipres","desierto","gris_basalto_claro","maní","marfil","oceanico",
+"tiendadentro","verde","verde_oscuro","amarillo_guay","amarillo_oro",
+"amazonas","ocre","oro_mate"
+];
+
+let seleccionados = [];
+
+/* ================= GENERAR COLORES ================= */
+const contenedor = document.getElementById("colores");
+
+contenedor.innerHTML = coloresFachadas.map(c => {
+const nombre = c.replace(/_/g," ").toUpperCase();
+const img = `/static_index/productos/sapolin/coloresfacsap/${c}.png`;
+
+return `
+<div class="color-card">
+<div class="color-img" style="background-image:url('${img}')"></div>
+<p>${nombre}</p>
+<button class="btn" onclick="agregarComparacion('${c}','${img}')">Comparar</button>
+</div>
+`;
+}).join("");
+
+/* ================= COMPARADOR ================= */
+function agregarComparacion(nombre,img){
+if(seleccionados.length>=2){
+alert("Solo puedes comparar 2 colores");
+return;
+}
+if(seleccionados.some(c=>c.nombre===nombre)) return;
+
+seleccionados.push({nombre,img});
+actualizarComparador();
+}
+
+function quitarColor(nombre){
+seleccionados = seleccionados.filter(c=>c.nombre!==nombre);
+actualizarComparador();
+}
+
+function limpiarComparador(){
+seleccionados=[];
+actualizarComparador();
+}
+
+function actualizarComparador(){
+const comp = document.getElementById("comparador");
+const grid = document.getElementById("compare-grid");
+
+if(seleccionados.length===0){
+comp.style.display="none";
+return;
+}
+
+comp.style.display="block";
+
+grid.innerHTML = seleccionados.map(c=>`
+<div class="compare-box">
+<div class="compare-img" style="background-image:url('${c.img}')"></div>
+<p><strong>${c.nombre.replace(/_/g," ").toUpperCase()}</strong></p>
+<button class="btn" onclick="quitarColor('${c.nombre}')">Quitar</button>
+</div>
+`).join("");
+}
+</script>
+
+</body>
+</html>

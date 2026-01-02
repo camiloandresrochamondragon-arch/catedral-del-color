@@ -140,17 +140,16 @@ def indupin_homeline_tipo2():
 #                     SAPOLIN
 # =======================================================
 
-@app.route("/sapolin/fachadas")
+@app.route("/sapolin/fachadassapolin/fachadassapolin.html")
 def sapolin_fachadas():
-    return render_template("sapolin/fachadas.html")
+    return render_template("sapolin/fachadassapolin/fachadassapolin.html")
 
-@app.route("/sapolin/barniz")
+@app.route("/sapolin/barnizagua/barnizagua.html")
 def sapolin_barniz():
-    return render_template("sapolin/barniz.html")
-
-@app.route("/sapolin/resina")
+    return render_template("sapolin/barnizagua/barnizagua.html")
+@app.route("/sapolin/invercril500/invercril500.html")
 def sapolin_resina():
-    return render_template("sapolin/resina.html")
+    return render_template("sapolin/invercril500/invercril500.html")
 
 
 if __name__ == "__main__":
